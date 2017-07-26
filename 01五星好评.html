@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				margin-left: 100px;
+				margin-top: 100px;
+			}
+			
+			li {
+				width: 50px;
+				height: 50px;
+				list-style: none;
+				float: left;
+				margin-left: 20px;
+				background: red;
+				border-radius: 50%;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var li = document.getElementsByTagName('li');
+				var dist;
+				for(var i = 0; i < li.length; i++) {
+					li[i].index = i;
+//					li[i].onmouseover = function() {
+//						for(j = 0; j < li.length; j++) {
+//							li[j].style.background = 'red';
+//						}
+//						for(var k = 0; k <= this.index; k++) {
+//							li[k].style.background = 'yellow';
+//						}
+//					}
+//					li[i].onmouseout = function() {
+//						for(var j = 0; j < li.length; j++) {
+//							li[j].style.background = 'red';
+//						}
+//						for (var k = 0;k<=dist;k++) {
+//							li[k].style.background = 'yellow';
+//						}
+//					}
+					li[i].onmouseover = function(){
+						consult(this.index);
+					}
+					li[i].onmouseout = function(){
+						consult(dist);
+					}
+					li[i].onclick = function(){
+						dist = this.index;
+					}
+				}
+				function consult(ref){
+					for(var j = 0; j < li.length; j++) {
+							li[j].style.background = 'red';
+						}
+						for (var k = 0;k<=ref;k++) {
+							li[k].style.background = 'yellow';
+						}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+
+</html>
